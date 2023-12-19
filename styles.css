@@ -57,6 +57,7 @@ header{
 .axl {
     display: flex;
     flex-direction: row;
+    margin-bottom: 100px;
 
 }
 .axl-info {
@@ -162,7 +163,7 @@ height: 75px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 300px;
+    margin-bottom: 700px;
 }
 .container .contactos a i{
     font-size: 40px;
