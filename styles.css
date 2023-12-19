@@ -113,10 +113,13 @@ flex-direction: column;
 width: 500px;
 height: 300px;
 object-fit: cover;
-
+transition: transform 0.3s ease-in-out;
+}
+.proyects .proyects-container .celda img:hover{
+    transform: scale(1.2);
 }
 .proyects .proyects-container .celda div {
-
+z-index: 10;
 width: 100%;
 background-color: rgb(41, 53, 72);
 height: 75px;
