@@ -1,37 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        :root{
+            --fondoAzul: rgb(17, 24, 39);
+            --azulHover: #2c66c3;
+            --turqueson: rgb(44, 182, 125);
+            --blur: blur(3px);
+            --sm: 10px;
+            --md: 20px;
+            --lg: 80px;
+        }
+        body{
+            background: var(--fondoAzul);
+            margin: 0;
+            display: grid;
+            place-content: center;
+            font-family: roboto mono;
+            
+        }
+        header{
+            width: 100%;
+            height: 50px;
+            position: fixed;
+            top: 0;
+            backdrop-filter: var(--blur);
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(12, 16, 25, 1), rgba(17, 24, 39, 0.5));
+           
+
+            
+        }
+        .navbar{
+            display: flex;
+            position: absolute;
+            right: 0;
+            padding: 10px;
+            align-items: center;
+            
+        }
+        .navbar .elements-container > a{
+            margin: 4px;
+            text-decoration: none;
+            color: aliceblue;
+            padding: 4px;
+            transition: background-color 0.3s ease;
+            border-radius:15px;
+        }
+        .navbar .elements-container > a:hover{
+            
+            background-color: var(--azulHover);
+        }
+        .container{
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .axl {
+            display: flex;
+            flex-direction: row;
+
+        }
+        .axl-info {
+            color: white;
+            text-align: right;
+            padding-right: 30px;
+            
+        }
+        .axl .axl-info p{
+            margin: 0;
+            display: block;
+        }
+        .axl .axl-info p:nth-child(1){
+            font-size: var(--md);
+        }
+        .axl .axl-info p:nth-child(2){
+            font-size: var(--lg);
+            
+        }
+        .axl .axl-info p:nth-child(3){
+            font-size: var(--md);
+            color: var(--turqueson);
+        }
+       .axl .imagen img{
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+       }
+       .proyects {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       }
+       .title {
+        color: white;
+       }
+       .proyects{
+        display: flex;
+        flex-direction: column;
+       }
+       .proyects .proyects-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+       }
+       .proyects .proyects-container .celda {
+        border-radius: 20px;
+        
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+       }
+       .proyects .proyects-container .celda img {
+        width: 500px;
+        height: 300px;
+        object-fit: cover;
+       
+       }
+       .proyects .proyects-container .celda div {
+        
+        width: 100%;
+        background-color: rgb(41, 53, 72);
+        height: 75px;
+        
+       }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="elements-container">
-            <a href="/">Inicio</a>
-            <a href="/">Proyectos</a>
-            <a href="/">Habilidades</a>
-            <a href="/">Contacto</a>
-        </div>
-        
-    </nav>
+    <header>
+        <nav class="navbar">
+            <div class="elements-container">
+                <a href="/">Inicio</a>
+                <a href="/">Proyectos</a>
+                <a href="/">Habilidades</a>
+                <a href="/">Contacto</a>
+            </div>
+        </nav>
+    </header>
     <div class="container">
         <div class="axl">
             <div class="axl-info">
                 <p>Hola, soy</p>
                 <p>Axel</p>
-                <p>&lt;&gt;Estudiante De Ingenieria De Software&lt;/&gt;</p>
+                <p>&lt;&gt;Desarrollador Web&lt;/&gt;</p>
             </div>
             <div class="imagen">
-                <img src="" alt="imagen">
+                <img src="https://purepng.com/public/uploads/large/purepng.com-pokemonpokemonpocket-monsterspokemon-franchisefictional-speciesone-pokemonmany-pokemonone-pikachu-1701527784845bdjl3.png" alt="imagen">
             </div>
         </div>
-        <h1 class="title">Proyectos</h1>
+        
         <div class="proyects">
-            <div class="Lil-Parrot"></div>
-            <div class="Ni-Pa-La-Muela"></div>
-            <div class="Retro-Step"></div>
-            <div class="personal"></div>
+            <h1 class="title">Proyectos</h1>
+            <div class="proyects-container">
+                <div class="celda Lil-Parrot">
+                    <img src="https://th.bing.com/th/id/OIP.aeuHCeZFbgtwwEF7gwiJFQHaHa?rs=1&pid=ImgDetMain" alt="Lil-Parrot">
+                    <div></div>
+                </div>
+                <div class="celda Ni-Pa-La-Muela">
+                    <img src="https://www.pkmnstats.com/static/artworks/111-rhyhorn.png" alt="Ni-Pa-La-Muela">
+                    <div></div>
+                </div>
+                <div class="celda Retro-Step">
+                    <img src="https://th.bing.com/th/id/OIP.lV1t4hfvJKqQnQYvi_QE_AHaHN?rs=1&pid=ImgDetMain" alt="Retro-Step">
+                    <div></div>
+                </div>
+                <div class="celda personal">
+                    <img src="https://orig04.deviantart.net/c7a6/f/2015/364/c/b/pokemon_lucario_by_tikitree2-d9m28q9.png" alt="personal">
+                    <div></div>
+                </div>
+            </div>
+            
         </div>
         <h1 class="title">Habilidades</h1>
         <div class="skills">
