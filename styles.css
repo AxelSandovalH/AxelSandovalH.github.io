@@ -170,3 +170,20 @@ height: 75px;
     margin: 0 20px;
     color: rgb(82, 116, 188);
 }
+@media (max-width: 640px) {
+    .axl {
+      align-items: center;
+    }
+  
+    .axl .imagen img {
+      margin-top: 20px;
+    }
+  
+    .proyects .proyects-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .skills {
+      grid-template-columns: 1fr;
+    }
+  }
