@@ -1,237 +1,400 @@
-:root{
-    --fondoAzul: rgb(17, 24, 39);
-    --azulHover: #2c66c3;
-    --turqueson: rgb(44, 182, 125);
-    --blur: blur(3px);
-    --sm: 10px;
-    --md: 20px;
-    --lg: 80px;
-}
-body{
-    background: var(--fondoAzul);
+/* Estilos generales */
+
+body {
     margin: 0;
-    display: grid;
-    place-content: center;
-    font-family: roboto mono;
-    
+    font-family: 'Montserrat', sans-serif;
 }
-header{
-    width: 100%;
-    height: 50px;
+
+/* Estilos de la barra de navegación */
+
+header {
+    display: flex;
     position: fixed;
-    top: 0;
-    backdrop-filter: var(--blur);
-    z-index: 1000;
-    background: linear-gradient(to bottom, rgba(12, 16, 25, 1), rgba(17, 24, 39, 0.5));
+    z-index: 15;
+    width: 100%;
+    top: o;
+    height: 70px;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
    
+    transition: transform 0.3s ease-out;
+    font-size: 15px
+
+}
+
+header.hidden {
+    transform: translateY(-100%);
+    /* transition: transform 0.3s ease-out; */
+}
+header .navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+header .navbar a {
+    margin-inline: 50px;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-radius: 8px;
+    transition: border 0.3s ease;
+    font-weight: 400;
+}
+header .navbar a:hover {
+    border: 1px solid yellow;
+
+}
+header .navbar .logoImageNavBar {
+    position: absolute;
+    left: 20px;
+    margin-top: 10px;
+}
+header .navbar .logoImageNavBar img {
+    width: 200px;
+    height: 70px;
+    transition: transform 0.3s ease-in-out;
+    object-fit: cover;
+    
+    display: inline;
+}
+header .navbar .logoImageNavBar img:hover {
+    transform: scale(1.1);
+}
+/* Estilos de la imagen principal */
+
+.principal-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden; /* Para ocultar el desbordamiento de la imagen */
+    position: relative; /* Necesario para el posicionamiento absoluto del contenido adicional */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.principal-image img {
+    width: 100%;
+    height: 100vh; /* Usar el 100% de la altura visible */
+    object-fit: cover;
+
+}
+.principal-image .logo:hover {
+    transform: scale(1.1);
+}
+/* Estilos del logo en la imagen principal */
+
+.principal-image .logo {
+    position: absolute;
+    top: 250px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.principal-image .logo img {
+   width: 500px;
+   height: 200px;
+    object-fit: cover;
+   
+}
+
+/* Estilos del contenedor de categorías del menú */
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .menu-categories {
+    width: 100%;
+    height: 400px;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 15;
 
     
 }
-.navbar{
+
+.container .menu-categories .categories {
+    width: 75%;
+    height: 50%;
     display: flex;
-    position: absolute;
-    right: 0;
-    padding: 10px;
     align-items: center;
-    
+    justify-content: center;
 }
-.navbar .elements-container > a{
-    margin: 4px;
-    text-decoration: none;
-    color: aliceblue;
-    padding: 4px;
-    transition: background-color 0.3s ease;
-    border-radius:15px;
+
+.container .menu-categories .categories div {
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+    position: relative;
 }
-.navbar .elements-container > a:hover{
-    
-    background-color: var(--azulHover);
+
+/* Estilos del texto en el contenedor de categorías */
+
+.container .menu-categories .categories .comida p {
+    position: absolute;
+    color: black;
+    font-size: large;
+    margin-top: 80px;
+    margin-left: 80px;
+    opacity: 0;
+    z-index: 7;
+    transition: opacity 0.3s ease-in-out; /* Agrega una transición suave a la propiedad de opacidad */
 }
-.container{
-    margin-top: 100px;
+
+.container .menu-categories .categories div:hover p {
+    opacity: 1; /* Cuando se hace hover sobre el div .comida, establece la opacidad en 1 */
+}
+
+/* Estilos de las imágenes en el contenedor de categorías */
+
+.container .menu-categories .categories div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease-in-out;
+    z-index: 5;
+}
+
+.container .menu-categories .categories div:hover img {
+    filter: blur(3px);
+}
+
+/* Estilos del botón de menú */
+
+.container .menu-categories .button-menu {
+    margin-top: 50px;
+    width: 100px;
+    height: 50px;
+    background: rgb(137, 10, 43);
+    color: white;
+    border-radius: 8px;
+    appearance: none; /* Restablece la apariencia del botón */
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 3px; /* Sin relleno */
+    outline: none; /* Quita el contorno predeterminado al enfocar */
+    font-family: inherit; /* Hereda la fuente del elemento padre */
+    font-size: inherit; /* Hereda el tamaño de fuente del elemento padre */
+    transition: background 0.3s ease-in-out;
+}
+
+.container .menu-categories .button-menu:hover {
+    background: rgb(213, 15, 67);
+}
+
+/* Estilos del contenedor dos (abajo del menú) */
+
+.container .container-dos {
+    display: grid;
+    width: 100%;
+    height: 2000px;
+    background-color: white;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    grid-template-rows: repeat(2, 1fr);    /* Dos filas */
+    gap: 0px; /* Espacio entre las celdas */
+    padding: 0; /* Espaciado interno del contenedor */
+    z-index: 11;
+    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.1), -10px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del contenedor derecho en la sección dos */
+
+.container .container-dos .about-us-container-right {
+   
+   
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.axl {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 100px;
-
-}
-.axl-info {
-    color: white;
-    text-align: right;
-    padding-right: 30px;
-    
-}
-.axl .axl-info p{
-    margin: 0;
-    display: block;
-}
-.axl .axl-info p:nth-child(1){
-    font-size: var(--md);
-}
-.axl .axl-info p:nth-child(2){
-    font-size: var(--lg);
-    
-}
-.axl .axl-info p:nth-child(3){
-    font-size: var(--md);
-    color: var(--turqueson);
-}
-.axl .imagen img{
-width: 150px;
-height: 150px;
-object-fit: cover;
-border-radius: 20px;
-}
-.proyects {
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.title {
-color: white;
-}
-.proyects{
-display: flex;
-flex-direction: column;
-}
-.proyects .proyects-container {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 20px;
-}
-.proyects .proyects-container .celda {
-border-radius: 20px;
-
-overflow: hidden;
-display: flex;
-flex-direction: column;
-}
-.proyects .proyects-container .celda img {
-width: 500px;
-height: 300px;
-object-fit: cover;
-transition: transform 0.3s ease-in-out;
-}
-.proyects .proyects-container .celda img:hover{
-    transform: scale(1.2);
-}
-.proyects .proyects-container .celda div {
-z-index: 10;
-width: 100%;
-background-color: rgb(41, 53, 72);
-height: 75px;
-
-}
-.skills{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 20px;
-}
-.skills .skill {
-    border-radius: 20px;
-    border: 1px solid rgb(50, 71, 115);
-    width: 160px;
-    height: 70px;
-    overflow: hidden;
-    display: flex;
-    
-}
-.skills .skill img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    padding: 5px;
-}
-.skills .skill  p {
+.container .container-dos .about-us-container-right div {
     text-align: center;
-    color: white;
+    
 }
-.skills .skill .skilli {
+.container .container-dos .about-us-container-right div h1, h2{
+    font-weight: 200;
+}
+.container .container-dos .about-us-container-right div hr{
+    width: 50%;
+}
+/* Estilos de los horarios en el contenedor derecho en la sección dos */
+
+.container .container-dos .about-us-container-right .horarios {
+    margin-top: 20px;
+    
+}
+
+.container .container-dos .about-us-container-right .horarios h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 200;
+}
+
+.container .container-dos .about-us-container-right .horarios p {
+    text-align: center;
+    margin: 5px;
+   
+}
+
+.container .container-dos .about-us-container-right .horarios p span {
+    display: inline-block; /* Hace que el span sea un bloque para agregar el espacio */
+    width: 100px; /* Ajusta el ancho según tus necesidades */
+    text-align: right; /* Alinea el texto a la derecha dentro del span */
+    padding-right: 10px; /* Agrega espacio en blanco a la derecha */
+    font-weight: 200;
+}
+
+
+/* Estilos del contenedor izquierdo en la sección dos */
+
+.container .container-dos .order-container-left {
+    
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.skills .skill .skilli img {
-    width: 30px;
-    height: 30px;
-    padding-inline: 2px;
-    margin-top: 6px;
+.container .container-dos .order-container-left .content-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    
 }
-.container .contactos {
+.container .container-dos .order-container-left .container h1 {
+    position: relative;
+    top: 0;
+}
+
+.container .container-dos .imagen-derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 7;
+}
+.container .container-dos .imagen-izquierda {
+    
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 7;
+}
+.container .container-dos .imagen-derecha img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 6;
+}
+.container .container-dos .imagen-izquierda img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 6;
+}
+/* Estilos del pie de página */
+
+.footer-container {
+    width: 100%;
+    height: 200px;
+    background: rgb(28, 28, 28);
+    display: flex;
+    flex-direction: column;
+    /* margin: 0;
+    padding: 0; */
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    
+   
+}
+.footer-container .footer-title {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin: 0;
+}
+.footer-container .footer-title h1{
+   font-size: large;
+   font-weight: 300;
+}
+.footer-container .footer-title p{
+    font-size: 10px;
+    font-weight: 100;
+}
+.footer-container .footer-links {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+.footer-container .footer-links a{
+    text-decoration: none;
+    color: white;
+    margin-inline:20px;
+    transition: color 0.3s ease;
+    
+}
+.footer-container .footer-links a:hover {
+    color: rgb(255, 16, 129);
+}
+.footer-container .logo-footer-container {
+    position: relative;
+    width: 100px;
+    height: 40px;
+    top: 0;
+}
+.footer-container .logo-footer-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.footer-container .social-networks {
+    width: 100%;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 700px;
+    /* background: white; */
 }
-.container .contactos a i{
-    font-size: 40px;
-    margin: 0 20px;
-    color: rgb(82, 116, 188);
+.footer-container .social-networks a i {
+    margin-inline: 10px;
+    font-size: 20px;
+    color: white;
+    transition: color 0.3s ease;
 }
-.container .proyects .proyects-container .celda div p {
-    text-align: left;
-    color: aliceblue;
+.footer-container .social-networks a i:hover {
+    color: rgb(255, 16, 129);
 }
-.container .proyects .proyects-container .celda div i{
-    margin-right: 10px;
-    margin-left: 10px;
+.footer-container .rights {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-@media (max-width: 640px) {
-    .axl {
-      align-items: center;
-    }
-  
-    .axl .imagen img {
-      margin-top: 20px;
-    }
-  
-    .proyects .proyects-container {
-      grid-template-columns: 1fr;
-    }
-  
-    .skills {
-      grid-template-columns: 1fr;
-    }
-    header {
-        width: 100%;
-        height: 60px; /* Tamaño ajustado para dispositivos móviles */
-        position: fixed;
-        top: 0;
-        backdrop-filter: var(--blur);
-        z-index: 1000;
-        background: linear-gradient(to bottom, rgba(12, 16, 25, 1), rgba(17, 24, 39, 0.5));
-      }
-      
-      .navbar {
-        display: flex;
-        position: absolute;
-        right: 0;
-        padding: 10px;
-        align-items: center;
-      }
-      
-      .navbar .elements-container > a {
-        margin: 4px;
-        text-decoration: none;
-        color: aliceblue;
-        padding: 4px;
-        transition: background-color 0.3s ease;
-        border-radius: 15px;
-      }
-      
-      .navbar .elements-container > a:hover {
-        background-color: var(--azulHover);
-      }
-      
-      .container {
-        margin-top: 80px; /* Ajuste del margen superior */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-  }
-  
+.footer-container .rights p {
+    text-align: center;
+    font-size: 10px;
+}
+.footer-container .rights p a{
+    text-decoration: none;
+    transition: color 0.3s ease;
+    color: white;
+}
+.footer-container .rights p a:hover {
+    color: rgb(255, 16, 129);
+}
