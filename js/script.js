@@ -152,7 +152,7 @@ function toggleMenu() {
     navbarContent.classList.toggle('show');
     menuIcon.classList.toggle('active');
 
-
+    
     navbarContent.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
             navbarContent.classList.remove('show');
